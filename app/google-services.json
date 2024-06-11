@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "338549861573",
+    "project_id": "poloroid-976f1",
+    "storage_bucket": "poloroid-976f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:338549861573:android:78d7c4ac8b40803bc8d4ac",
+        "android_client_info": {
+          "package_name": "com.example.poloroids"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ7BniG6HPVS7vZptwlN_j0_O-NB_as40"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".Register">
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="154dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="88dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <ImageView
+        android:id="@+id/ash_lock"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="12dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/passwordLay"
+        app:layout_constraintTop_toBottomOf="@+id/email_image"
+        app:srcCompat="@drawable/ashlock" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/emailLay"
+        android:layout_width="285dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/phoneLay">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:inputType="textEmailAddress" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/email_image"
+        android:layout_width="49dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toStartOf="@+id/emailLay"
+        app:layout_constraintTop_toTopOf="@+id/emailLay"
+        app:srcCompat="@drawable/email" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/passwordLay"
+        android:layout_width="285dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/emailLay"
+        app:layout_constraintVertical_bias="0.031">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="password"
+            android:inputType="textPassword" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/ash_phone"
+        android:layout_width="50dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="#00FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/phoneLay"
+        app:layout_constraintTop_toBottomOf="@+id/human"
+        app:srcCompat="@drawable/ashphone" />
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progress_bar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/sign_up"
+        android:layout_width="339dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/sign_up"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/passwordLay"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/phoneLay"
+        android:layout_width="285dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usernameLay">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone no"
+            android:inputType="phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!--<Button
+        android:id="@+id/printers_sign_up"
+        android:layout_width="339dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
+        android:backgroundTint="@color/light_ash"
+        android:text="@string/printers_signup"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.555"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sign_up" />-->
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/usernameLay"
+        android:layout_width="285dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logo">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/usernameHint"
+            android:inputType="text" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <ImageView
+        android:id="@+id/human"
+        android:layout_width="68dp"
+        android:layout_height="60dp"
+        app:layout_constraintBottom_toTopOf="@+id/email_image"
+        app:layout_constraintEnd_toStartOf="@+id/usernameLay"
+        app:layout_constraintTop_toBottomOf="@+id/logo"
+        app:layout_constraintVertical_bias="0.21"
+        app:srcCompat="@drawable/human1" />
+
+    <Button
+        android:id="@+id/btn_back_to_login"
+        android:layout_width="99dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="128dp"
+        android:text="@string/back_to_login"
+        app:layout_constraintBottom_toTopOf="@+id/human"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

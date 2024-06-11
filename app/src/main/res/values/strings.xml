@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">Poloroids</string>
+
+    <string name="colors">Colours</string>
+    <string name="edit_image">Edit Image</string>
+    <string name="gallery">Gallery</string>
+
+    <string name="login">Login</string>
+    <string name="sign_up">Sign up</string>
+    <string name="printers_login">Printers Login</string>
+    <string name="printers_signup">Printers Sign Up</string>
+    <string name="logout">Logout</string>
+    <string name="btnload">btnload</string>
+    <string name="load">Load</string>
+    <string name="print">Print</string>
+    <string name="remove">Remove</string>
+
+    <string name="lasini">Lasini</string>
+    <string name="milani">Milani</string>
+    <string name="dilshi">Dilshi</string>
+    <string name="lokitha">Lokitha</string>
+    <string name="meraj">Meraj</string>
+
+    <string name="black">Black</string>
+    <string name="ash">Ash</string>
+    <string name="brown">Brown</string>
+    <string name="cream">Cream</string>
+    <string name="light_pink">Light Pink</string>
+    <string name="white">White</string>
+    <string name="gradients">Gradients</string>
+    <string name="patters">Patters</string>
+    <string name="login_printer">Login(Printer)</string>
+    <string name="sign_up_printer">Sign up(Printer)</string>
+    <string name="sign_up_printers">Sign up(Printers)</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="email">Email</string>
+    <string name="username">Username</string>
+    <string name="phone_no">Phone no</string>
+    <string name="made_in_sri_lanka">Made in Sri Lanka</string>
+    <string name="version_1_0">Version 1.0</string>
+    <string name="made_in">Made in</string>
+    <string name="orders">Orders</string>
+    <string name="poloroid_desc2">Choose a high-quality image that will look good when printed at a smaller size. Crop your image to fit the proportions of the Polaroid frame. Use a photo editing program to add filters or effects to your image. Print your photo on high-quality photo paper. You can also add text to your Polaroid, such as the date, location, or a caption.</string>
+    <string name="poloroid_desc1">The Polaroid layout is a classic and popular choice for displaying photos. It has a white border around the image, and the bottom of the frame is slightly wider than the top. The dimensions of the Polaroid in the image are 6.35 inches wide by 4.5 inches tall.Polaroid layouts are a great way to add a touch of personality to your photos. They can be used to display individual photos or create collages. They are also a popular choice for scrapbooks and photo albums</string>
+    <string name="back_to_login"><![CDATA[<Back]]></string>
+    <string name="passwordHint">password</string>
+    <string name="usernameHint">Username</string>
+
+</resources>

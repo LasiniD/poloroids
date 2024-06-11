@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".GalleryFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="@string/gallery"
+        android:layout_margin="30dp"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="60dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="30dp">
+
+
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:columnCount="2"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                tools:src="@tools:sample/avatars"
+                android:padding="10dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/coffeesplash"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/img1"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                tools:src="@tools:sample/avatars"
+                android:layout_margin="10dp"
+                android:padding="10dp"
+                android:src="@drawable/coffeesplash"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/img2"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                tools:src="@tools:sample/avatars"
+                android:padding="10dp"
+                android:src="@drawable/coffeesplash"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/img3"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                tools:src="@tools:sample/avatars"
+                android:padding="10dp"
+                android:src="@drawable/coffeesplash"
+                android:scaleType="centerCrop"/>
+
+            <ImageView
+                android:id="@+id/img4"
+                android:layout_width="130dp"
+                android:layout_height="150dp"
+                android:layout_margin="10dp"
+                tools:src="@tools:sample/avatars"
+                android:padding="10dp"
+                android:src="@drawable/coffeesplash"
+                android:scaleType="centerCrop"/>
+
+        </GridLayout>
+
+    </ScrollView>
+
+</FrameLayout>
