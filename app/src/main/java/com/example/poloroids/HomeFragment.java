@@ -2,12 +2,25 @@ package com.example.poloroids;
 
 import static android.app.Activity.RESULT_OK;
 
+/*import static androidx.camera.camera2.internal.Camera2CaptureRequestBuilder.build;*/
+
+import static androidx.camera.core.impl.utils.ContextUtil.getApplicationContext;
+
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
+import androidx.camera.lifecycle.ProcessCameraProvider;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
@@ -22,12 +35,24 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.target.ViewTarget;
+import com.example.poloroids.databinding.ActivityMainBinding;
 
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.LiveData;
+
+import java.io.File;
+import java.util.Arrays;
+import java.util.Map;
+
+import androidx.camera.core.*; // For ProcessCameraProvider, Preview, CameraSelector
+import androidx.core.content.ContextCompat; // For ContextCompat
+import android.util.Log; // For Log
+
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -78,7 +103,7 @@ public class HomeFragment extends Fragment {
 
     }
 
-    Button button;
+    Button button , buttonCam;
     TextView textView;
     ImageView imageView;
     private Uri selectedImage;
@@ -91,6 +116,7 @@ public class HomeFragment extends Fragment {
 
         imageView = view.findViewById(R.id.imggallery);
         button = view.findViewById(R.id.btnload);
+        buttonCam = view.findViewById(R.id.btncam);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -99,17 +125,95 @@ public class HomeFragment extends Fragment {
             }
         });
 
+        /*buttonCam.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ImageCapture.OutputFileOptions outputFileOptions =
+                        new ImageCapture.OutputFileOptions.Builder(new File(...)).build();
+                imageCapture.takePicture(outputFileOptions, cameraExecutor,
+                        new ImageCapture.OnImageSavedCallback() {
+                            @Override
+                            public void onImageSaved(ImageCapture.OutputFileResults outputFileResults) {
+                                // insert your code here.
+                            }
+                            @Override
+                            public void onError(ImageCaptureException error) {
+                                // insert your code here.
+                            }
+                        }
+                );
+            }
+        });*/
+
         return view;
     }
-
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == RESULT_OK && data!= null){
             Uri selectedImage = data.getData();
-            imageView = imageView.findViewById(R.id.imggallery);
+            /*imageView = imageView.findViewById(R.id.imggallery);*/
             imageView.setImageURI(selectedImage);
         }
     }
+
+   /*private static final String[] REQUIRED_PERMISSIONS = new String[]{
+            android.Manifest.permission.CAMERA,
+            android.Manifest.permission.WRITE_EXTERNAL_STORAGE
+    };*/
+ /*
+    private ActivityResultLauncher<String[]> activityResultLauncher = registerForActivityResult(
+            new ActivityResultContracts.RequestMultiplePermissions(),
+            permissions -> {
+                boolean permissionGranted = true;
+                for (Map.Entry<String, Boolean> entry : permissions.entrySet()) {
+                    if (Arrays.asList(REQUIRED_PERMISSIONS).contains(entry.getKey()) && !entry.getValue()) {
+                        permissionGranted = false;
+                        break;
+                    }
+                }
+                if (!permissionGranted) {
+                    Toast.makeText(requireContext(), "Permission request denied", Toast.LENGTH_SHORT).show();
+                } else {
+                    startCamera();
+                }
+            });*/
+
+    /*private void requestPermissions() {
+        activityResultLauncher.launch(REQUIRED_PERMISSIONS);
+    }*/
+
+    /*private void startCamera() {
+        // Get a reference to the ProcessCameraProvider
+        ProcessCameraProvider cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+
+        cameraProviderFuture.addListener(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    // Get the camera provider
+                    ProcessCameraProvider cameraProvider = cameraProviderFuture.get();
+
+                    // Build the preview use case
+                    Preview preview = viewBinding.preview;
+
+                    // Select the back camera
+                    CameraSelector cameraSelector = CameraSelector.DEFAULT_BACK_CAMERA;
+
+                    // Unbind any existing use cases
+                    cameraProvider.unbindAll();
+
+                    // Bind the preview use case to the lifecycle owner
+                    cameraProvider.bindToLifecycle(
+                            HomeFragment.this,  // Assuming this is a HomeFragment instance
+                            cameraSelector, preview);
+
+                } catch (Exception exc) {
+                    Log.e(getTag(), "Use case binding failed", exc);
+                }
+            }
+        }, ContextCompat.getMainExecutor(this));
+    }
+*/
 }

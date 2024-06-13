@@ -46,5 +46,6 @@
     <string name="back_to_login"><![CDATA[<Back]]></string>
     <string name="passwordHint">password</string>
     <string name="usernameHint">Username</string>
+    <string name="camera">Camera</string>
 
 </resources>

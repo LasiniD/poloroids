@@ -1,18 +1,34 @@
 package com.example.poloroids;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -54,8 +70,13 @@ public class ProfileFragment extends Fragment {
 
     FirebaseAuth auth;
     Button button;
-    TextView textView;
+    TextView textViewEmail,username,phone_number;
+    //AutoCompleteTextView username,phone;
     FirebaseUser user;
+    FirebaseFirestore db;
+    String uid;
+    //DataSnapshot dataSnapshot;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -74,14 +95,56 @@ public class ProfileFragment extends Fragment {
 
         auth = FirebaseAuth.getInstance();
         button = view.findViewById(R.id.logout);
-        textView = view.findViewById(R.id.usernameText);
+        textViewEmail = view.findViewById(R.id.usernameText);
+        username = view.findViewById(R.id.txtAutoUsername);
+        phone_number = view.findViewById(R.id.txtAutoPhone);
         user = auth.getCurrentUser();
+
         if (user==null){
             Intent intent= new Intent(getActivity(), Login.class);
             startActivity(intent);
         }
         else{
-            textView.setText(user.getEmail());
+            uid = user.getUid();
+            db = FirebaseFirestore.getInstance();
+
+            textViewEmail.setText(user.getEmail());
+            //DocumentReference userRef = db.collection("users").document(uid);
+
+            /*class User {
+                public final String email;
+                public final String username;
+                public final String phone_number;
+
+                public User(String email, String username, String phone_number) {
+                    this.email = email;
+                    this.username = username;
+                    this.phone_number = phone_number;
+                }
+            }*/
+
+            /*userRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot snapshot,
+                                    @Nullable FirebaseFirestoreException e) {
+                    if (e != null) {
+                        //Log.w("ProfileFragment", "Listen failed.", e);
+                        return;
+                    }
+
+                    if (snapshot != null && snapshot.exists()) {
+                        User user = snapshot.toObject(User.class);
+                        if (user != null) {
+                            textViewEmail.setText(user.email);
+                            username.setText(user.username);
+                            phone_number.setText(user.phone_number);
+                        }
+                    } else {
+                        // Handle the case where the document doesn't exist
+                    }
+                }
+            });*/
+
         }
 
         button.setOnClickListener(new View.OnClickListener() {
